@@ -1,0 +1,10 @@
+{{- $favicon := resources.Get "img/idea-512x512.png" -}}
+{{- if $favicon -}}
+  {{- $icon16 := $favicon.Resize "16x16" -}}
+  {{- $icon32 := $favicon.Resize "32x32" -}}
+  {{- $icon180 := $favicon.Resize "180x180" -}}
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ $icon16.RelPermalink }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ $icon32.RelPermalink }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ $icon180.RelPermalink }}">
+{{- end -}}
+<link rel="manifest" href="{{ "site.webmanifest" | relURL }}">

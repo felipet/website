@@ -1,0 +1,13 @@
+User-agent: *
+{{- if hugo.IsProduction | or (eq .Site.Params.env "production") }}
+Allow: /
+# Disallow taxonomies to avoid duplicate content/thin content issues
+Disallow: /tags/
+Disallow: /categories/
+Disallow: /series/
+Disallow: /authors/
+{{- else }}
+Disallow: /
+{{- end }}
+
+Sitemap: {{ "sitemap.xml" | absURL }}

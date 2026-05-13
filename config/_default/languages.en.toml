@@ -1,0 +1,34 @@
+disabled = false
+locale = "en"
+label = "English"
+weight = 1
+title = "Felipe's website"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+  #logo = "img/idea-512x512.png"
+  #secondaryLogo = "img/idea-512x512.png"
+  description = "All-terrain engineer focused on crypto and Rust"
+  copyright = "GNU GPLv3"
+
+[params.author]
+  name = "Felipe Torres González"
+  email = "torresfelipex1@gmail.com"
+  image = "img/profile.png"
+  imageQuality = 75
+  headline = "A bit about myself and my interests"
+  bio = ""
+ links = [
+    { email = "mailto:torresfelipex1@gmail.com" },
+    { bluesky = "https://bsky.app/profile/felipetg.bsky.social" },
+    { discord = "https://discord.com/users/1150086369041977465" },
+    { github = "https://github.com/felipet" },
+    { instagram = "https://instagram.com/feltorgrafo" },
+    { linkedin = "https://linkedin.com/in/felipetorresgonzalez" },
+    { researchgate = "https://www.researchgate.net/profile/Felipe-Torres-Gonzalez" },
+    { x-twitter = "https://twitter.com/felipteg" },
+    { ko-fi = " ko-fi.com/felipetg" },
+  ]

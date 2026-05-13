@@ -1,0 +1,124 @@
+/* Global background image */
+body {
+    background-image: url('/img/pcb_background.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent !important;
+}
+
+/* Base overlay for the HOMEPAGE - more uniform and subtle */
+body.home::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2; 
+    pointer-events: none;
+    background: linear-gradient(to bottom, 
+        transparent 0%, 
+        transparent 15vh, 
+        rgba(255, 255, 255, 0.75) 25vh, 
+        rgba(255, 255, 255, 0.85) 100%
+    );
+}
+
+html.dark body.home::after {
+    background: linear-gradient(to bottom, 
+        transparent 0%, 
+        transparent 15vh, 
+        rgba(0, 0, 0, 0.75) 25vh, 
+        rgba(0, 0, 0, 0.85) 100%
+    );
+}
+
+/* Post-specific protective overlay - Clear top, fade into opaque bottom */
+body:not(.home)::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2; 
+    pointer-events: none;
+    
+    background: linear-gradient(to bottom, 
+        transparent 0%, 
+        transparent 15vh, 
+        rgba(255, 255, 255, 0.8) 30vh, 
+        rgba(255, 255, 255, 0.95) 100%
+    );
+}
+
+html.dark body:not(.home)::after {
+    background: linear-gradient(to bottom, 
+        transparent 0%, 
+        transparent 15vh, 
+        rgba(15, 15, 15, 0.8) 30vh, 
+        rgba(15, 15, 15, 0.98) 100%
+    );
+}
+
+/* Styling for the dynamic blur overlay (controlled by JS) */
+#global-background-blur {
+    pointer-events: none;
+    transition: opacity 0.1s ease-out;
+    z-index: -1;
+}
+
+/* Push content down ONLY for blog posts/projects, not the homepage */
+body:not(.home) #main-content {
+    margin-top: 35vh;
+    padding-bottom: 5rem;
+}
+
+/* Homepage specific: keep it compact */
+body.home #main-content {
+    margin-top: 5vh;
+}
+
+.home-recent-header {
+    text-align: center !important;
+}
+
+/* Center the grid of cards on the homepage */
+body.home #main-content section.grid {
+    justify-items: center !important;
+    justify-content: center !important;
+}
+
+/* Adjustments for mobile */
+@media (max-width: 640px) {
+    body:not(.home) #main-content {
+        margin-top: 20vh;
+    }
+    body:not(.home)::after, html.dark body:not(.home)::after {
+        background: linear-gradient(to bottom, 
+            transparent 0%, 
+            transparent 10vh, 
+            rgba(255, 255, 255, 0.9) 20vh, 
+            rgba(255, 255, 255, 0.95) 100%
+        );
+    }
+}
+
+/* Cookie Consent Banner Styling */
+#cookie-banner {
+    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.85);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+}
+
+html.dark #cookie-banner {
+    background-color: rgba(20, 20, 20, 0.9);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e5e5e5;
+}
+
+#cookie-banner .btn-accept {
+    transition: all 0.2s ease;
+}
+
+#cookie-banner .btn-accept:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}

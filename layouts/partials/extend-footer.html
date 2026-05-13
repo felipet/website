@@ -1,0 +1,36 @@
+{{/* Cookie Consent Banner */}}
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 hidden p-6">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="text-sm md:text-base">
+      <p>This website uses cookies to analyze traffic and improve your experience. By continuing to browse, you agree to our use of cookies.</p>
+    </div>
+    <div class="flex shrink-0">
+      <button id="cookie-accept" class="btn-accept px-6 py-2 text-sm font-bold rounded-lg bg-primary-500 text-neutral-100 dark:bg-primary-400 dark:text-neutral-800">
+        I understand
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('cookie-accept');
+    
+    // Check if user has already consented
+    if (!localStorage.getItem('cookie-consent')) {
+      // Small delay before showing
+      setTimeout(() => {
+        banner.classList.remove('hidden');
+        banner.classList.add('animate-fade-in-up');
+      }, 1000);
+    }
+
+    acceptBtn.addEventListener('click', function() {
+      localStorage.setItem('cookie-consent', 'true');
+      banner.classList.add('hidden');
+    });
+  })();
+</script>
+
+<a rel="me" href="https://masto.ai/@nunocoracao"></a>
